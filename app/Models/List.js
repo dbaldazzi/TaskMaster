@@ -3,16 +3,16 @@ export default class List {
     //and the methods needed to create the view template for this model
     constructor(data) {
         this._id = data.id,
-            this.name = data.name,
+            this.List = data.List,
             this.items = data.items || []
     }
 
     getTemplate(index) {
         let template = `
  <div class="col-r border">
- <h1>${this.name}</h1> 
+ <h1>${this.List}</h1> 
  <ul>`
-        template += this.drawItems(index)
+        template += this.drawitems(index)
         template += `</ul>
                  <form onsubmit="app.Controllers.ListController.additem(event,${index})">
             <div class="form-group">
@@ -26,7 +26,7 @@ export default class List {
            `
         return template
     }
-    drawItems(itemsIndex) {
+    drawitems(itemsindex) {
         let itemsTemplate = ""
         this.items.forEach((i, itemsIndex) => {
             itemsTemplate += `<li> ${i} < span onclick = "app.Controllers.ListController.delteItems(${itemsIndex} 

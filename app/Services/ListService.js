@@ -2,16 +2,16 @@ import List from "../models/List.js";
 
 //Private
 let _state = {
-    lists: [new List({
-        name: List,
-        items: []
+    List: [new List({
+        List: List,
+        items: ["chores", "groceries"],
     })]
 }
 
 
 
 //Public
-export default class ValueSService {
+export default class ValueService {
     //TODO  Here is where we handle all of our data manipulation, 
     //given the information you need in the controller, 
     //what methods will be required to support that functionality?
@@ -21,7 +21,7 @@ export default class ValueSService {
     }
 
     deleteList(id) {
-        _state.Lists.forEach((List, i) => {
+        _state.List.forEach((List, i) => {
             if (List._id = id) {
                 _state.lists.splice(i, 1)
             }
@@ -29,11 +29,12 @@ export default class ValueSService {
     }
 
     addList(newlist) {
-        _state.lists.push(new List(newlist))
+        _state.List.push(new List(newlist))
+        console.log(_state.lists)
 
     }
     additems(newitem) {
-        _state.item.push(new item(newitem))
+        _state.item.push(newitem(newitem))
     }
 
     constructor() {

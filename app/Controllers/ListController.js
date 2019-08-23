@@ -1,4 +1,5 @@
 import ListService from "../Services/ListService.js";
+import List from "../models/List.js";
 
 //Private
 let _listService = new ListService()
@@ -6,13 +7,13 @@ let _listService = new ListService()
 //TODO Don't forget to render to the screen after every data change.
 function _drawLists() {
     let template = ''
-    let Lists = _listService.List
+    let Lists = _listService.list
 
     Lists.forEach((lists, index) => {
         template += lists.template
     })
 
-    let listnameElement = document.querySelector("#Items").innerHTML = template
+    let listElement = document.querySelector("#list-name").innerHTML = template
 }
 
 
