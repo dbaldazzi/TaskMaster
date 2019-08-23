@@ -3,8 +3,8 @@ export default class List {
     //and the methods needed to create the view template for this model
     constructor(data) {
         this._id = data.id,
-            this.name = data.name
-        this.items = data.items
+            this.name = data.name,
+            this.items = data.items
     }
 
     getTemplate(index) {
@@ -33,6 +33,8 @@ export default class List {
             itemsTemplate += `<li> ${i} < span onclick = "app.controllers.ListController.delteItems(${itemsIndex} 
         ${ itemsIndex})">X</span><li>`
         });
+
+
+        return itemsTemplate
     }
 }
-return itemsTemplate

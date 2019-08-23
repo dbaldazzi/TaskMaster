@@ -2,12 +2,16 @@ import List from "../models/List.js";
 
 //Private
 let _state = {
-    lists: []
+    lists: [new List({
+        name: "list",
+        items: "",
+    })]
 }
 
 
+
 //Public
-export default class ValuesService {
+export default class ValueService {
     //TODO  Here is where we handle all of our data manipulation, 
     //given the information you need in the controller, 
     //what methods will be required to support that functionality?

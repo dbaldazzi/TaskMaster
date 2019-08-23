@@ -6,13 +6,13 @@ let _listService = new ListService()
 //TODO Don't forget to render to the screen after every data change.
 function _drawLists() {
     let template = ''
-    let lists = _listService
+    let lists = _listService.List
 
-    lists.forEach(element => {
-
-    }); ((lists, index) => {
+    lists.forEach((lists, index) => {
         template += lists.template
-    });
+    })
+
+    document.querySelector("#lists").innerHTML = template
 }
 
 
@@ -26,4 +26,15 @@ export default class ListController {
     }
 
     //TODO: Your app will need the ability to create, and delete both lists and listItems
+    addList(event) {
+        event.preventDefault()
+        let form = event.target
+
+        let newList = {
+            name: form.name.value
+        }
+        ListService.addList(newList)
+        _drawLists()
+
+    }
 }
