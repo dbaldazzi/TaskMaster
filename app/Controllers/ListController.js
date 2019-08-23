@@ -5,7 +5,12 @@ let _listService = new ListService()
 
 //TODO Don't forget to render to the screen after every data change.
 function _drawLists() {
+    let template = ''
+    let lists = _listService
 
+    lists.forEach((lists, index) => {
+        template += lists.template
+    });
 }
 
 
