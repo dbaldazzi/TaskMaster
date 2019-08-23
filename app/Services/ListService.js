@@ -4,7 +4,7 @@ import List from "../models/List.js";
 let _state = {
     lists: [new List({
         name: "list",
-        items: "",
+        items: [""],
     })]
 }
 
@@ -16,6 +16,18 @@ export default class ValueService {
     //given the information you need in the controller, 
     //what methods will be required to support that functionality?
 
+    deleteList(id) {
+        _state.lists.forEach((List, i) => {
+            if (List._id = id) {
+                _state.lists.splice(i, 1)
+            }
+        })
+    }
+
+    addList(newlist) {
+        _state.lists.push(new List(newlist))
+
+    }
 
 
 

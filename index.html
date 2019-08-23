@@ -12,28 +12,22 @@
 
 <body>
     <div class="container-fluid bg-primary vh-100">
+        <h1>Task Master</h1>
         <div class="row text-center text-white">
-            <h1>Task Master</h1>
-        </div>
-        <div class="row">
-            <div class="col-4">
-                <form>
-                    <form onsubmit="app.controllers.ListController.addList(event)">
-                    </form>
-                    <div class="form-group border">
-                        <label for="list name">List Name</label>
-                        <input type="list" class="form-control" id="list-name" aria-describedby="emailHelp"
-                            placeholder="List Name">
-                        <small id="listname" class="form-text text-muted">List Name</small>
-                    </div>
+            <form onsubmit="app.Controllers.ListController.addList(event)">
+                <div class="form-group border">
+                    <label for="name">List Name</label>
+                    <input type="list" class="form-control" id="list-name" placeholder="List Name">
+                    <small id="listname" class="form-text text-muted"></small>
                     <button type="submit" class="btn btn-primary border">Submit</button>
-                </form>
+                </div>
+            </form>
+            <div id="Items" class="row">
             </div>
         </div>
     </div>
-
-
-    <script src="app/main.js" type="module"></script>
+    <script src="app/main.js" type="module">
+    </script>
 </body>
 
 </html>
