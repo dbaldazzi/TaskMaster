@@ -8,7 +8,9 @@ function _drawLists() {
     let template = ''
     let lists = _listService
 
-    lists.forEach((lists, index) => {
+    lists.forEach(element => {
+
+    }); ((lists, index) => {
         template += lists.template
     });
 }

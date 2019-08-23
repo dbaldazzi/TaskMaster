@@ -4,7 +4,7 @@ export default class List {
     constructor(data) {
         this._id = data.id,
             this.name = data.name
-
+        this.items = data.items
     }
 
     getTemplate(index) {
@@ -12,13 +12,27 @@ export default class List {
  <div class="col-r border">
  <h1>${this.name}</h1> 
  <ul>`
-        template += this.drawitems(index)
-            < form >
+        template += this.drawItems(index)
+        template +=
+            `</ul>
+                 <form onsubmit="app.controllers.ListController.addItem(event, ${index})">
             <div class="form-group">
                 <label for="Items">Items</label>
-                <input type="list" class="form-control" id="items" aria-describedby="items" placeholder="items">
-                    <small id="emailHelp" class="form-text text-muted">List items.</small>
-  </div>
-                `
-                }
+                <input type="text" class="form-control" id="items" placeholder="items">
+                </div> 
+                     <button type="submit">+</button>
+                </form> 
+        <button type="button" onclick="app.controllers.ListController.deleteItems(${index})">X</button>
+          </div > 
+           `
+        return template
+    }
+    drawItems(itemsIndex) {
+        let itemsTemplate = ""
+        this.items.forEach((i, itemsIndex) => {
+            itemsTemplate += `<li> ${i} < span onclick = "app.controllers.ListController.delteItems(${itemsIndex} 
+        ${ itemsIndex})">X</span><li>`
+        });
+    }
 }
+return itemsTemplate
