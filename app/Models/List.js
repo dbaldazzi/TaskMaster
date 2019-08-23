@@ -4,7 +4,7 @@ export default class List {
     constructor(data) {
         this._id = data.id,
             this.name = data.name,
-            this.items = data.items
+            this.items = data.items || []
     }
 
     getTemplate(index) {
@@ -28,8 +28,8 @@ export default class List {
     }
     drawItems(itemsIndex) {
         let itemsTemplate = ""
-        this.items.forEach((items, itemsIndex) => {
-            itemsTemplate += `<li> ${itemsIndex} < span onclick = "app.Controllers.ListController.delteItems(${itemsIndex} 
+        this.items.forEach((i, itemsIndex) => {
+            itemsTemplate += `<li> ${i} < span onclick = "app.Controllers.ListController.delteItems(${itemsIndex} 
         ${itemsIndex})">X</span><li>`
         });
 
