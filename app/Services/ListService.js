@@ -1,44 +1,51 @@
-import List from "../models/List.js";
+import List from "../Models/List.js";
 
 //Private
 let _state = {
-    List: [new List({
-        List: List,
-        items: ["chores", "groceries"],
-    })]
+    lists: []
 }
 
 
 
 //Public
-export default class ValueService {
+export default class ListService {
     //TODO  Here is where we handle all of our data manipulation, 
     //given the information you need in the controller, 
     //what methods will be required to support that functionality?
 
     deleteItems(listindex, itemsindex) {
-        _state.Lists[listindex].items.slize(itemsindex, 1)
+        _state.Lists[listindex].items.splice(itemsindex, 1)
+        this.saveLists()
     }
 
-    deleteList(id) {
-        _state.List.forEach((List, i) => {
-            if (List._id = id) {
-                _state.lists.splice(i, 1)
-            }
-        })
+    deleteList(index) {
+        _state.List.splice(index, 1)
+        this.saveLists()
     }
 
-    addList(newlist) {
-        _state.List.push(new List(newlist))
-        console.log(_state.lists)
-
+    addItems(newItems, listindex) {
+        _state.List[listindex].items.push(newItems)
+        this.saveLists()
     }
-    additems(newitem) {
-        _state.item.push(newitem(newitem))
+    addList(newList) {
+        _state.lists.push(new List(newList))
+        this.saveLists()
+        console.log(_state.List)
     }
 
-    constructor() {
+    // constructor() {
+    //     this.loadLists()
+    // }
 
+    get lists() {
+        return _state.lists.map(list => new List(list))
+    }
+
+    loadLists() {
+        let savedLists = JSON.parse(localStorage.getItem("lists"))
+        if (savedLists) {
+            _state.lists = savedLists
+        }
     }
 
 
@@ -58,3 +65,4 @@ export default class ValueService {
         }
     }
 }
+console.log("service")
