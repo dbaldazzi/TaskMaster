@@ -2,8 +2,10 @@ import List from "../Models/List.js";
 
 //Private
 let _state = {
-    lists: []
+    lists: [],
+    items: []
 }
+
 
 
 
@@ -13,30 +15,35 @@ export default class ListService {
     //given the information you need in the controller, 
     //what methods will be required to support that functionality?
 
-    deleteItems(listindex, itemsindex) {
-        _state.Lists[listindex].items.splice(itemsindex, 1)
+
+    //delete items and lists 
+    deleteItems(listIndex, itemsIndex) {
+        _state.lists[listIndex].items.splice(itemsIndex, 1)
         this.saveLists()
     }
 
     deleteList(index) {
-        _state.List.splice(index, 1)
+        _state.list.splice(index, 1)
         this.saveLists()
     }
 
-    addItems(newItems, listindex) {
-        _state.List[listindex].items.push(newItems)
+    //add items and lists 
+    addItems(newItems, listIndex) {
+        _state.list[listIndex].items.push(newItems)
         this.saveLists()
+        console.log(_state.items)
     }
     addList(newList) {
         _state.lists.push(new List(newList))
         this.saveLists()
-        console.log(_state.List)
+        console.log(_state.items)
     }
 
     // constructor() {
     //     this.loadLists()
     // }
 
+    //local storage for load on page load and reload 
     get lists() {
         return _state.lists.map(list => new List(list))
     }
