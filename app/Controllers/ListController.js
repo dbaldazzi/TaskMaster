@@ -11,7 +11,7 @@ function _draw() {
         template += lists.getTemplate(index)
     })
 
-    document.querySelector("#list-name").innerHTML = template
+    document.querySelector("#list").innerHTML = template
 }
 console.log("controller")
 //Public
@@ -40,6 +40,7 @@ export default class ListController {
         _listService.addItems(newItems, listIndex)
         _draw()
     }
+
     deleteLists(index) {
         _listService.deleteList(index)
         _draw()

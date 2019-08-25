@@ -17,14 +17,14 @@ export default class List {
             <ul>`
         template += this.drawItems(index)
         template += ` </ul>
-                 <form onsubmit="app.Controllers.ListController.additem(event, ${index})">
+                 <form onsubmit="app.controllers.listController.additem(event, ${index})">
             <div class="form-group">
-                <label for="items">items</label>
+                <label for="items">Items</label>
                 <input type="text" class="form-control" name="Items" placeholder="list items">
                 </div> 
-                     <button type="submit">+</button>
+                     <button type="submit">Add</button>
                 </form> 
-        <button type="button" onclick="app.controllers.listController.deleteList(${index})">X</button>
+        <button type="button" class="bg-danger" onclick="app.controllers.listController.deleteList(${index})">Delete</button>
           </div > 
            `
         return template
@@ -32,8 +32,8 @@ export default class List {
     drawItems(listindex) {
         let itemsTemplate = ""
         this.items.forEach((i, itemsIndex) => {
-            itemsTemplate += `<li> ${i} < span onclick = "app.controllers.listController.delteItems(${listindex}, 
-        ${itemsIndex})">X</span><li>`
+            itemsTemplate += `<li> ${i} < span onclick = "app.controllers.listController.deleteItems(${listindex}, 
+        ${itemsIndex})">Delete</span><li>`
         });
         return itemsTemplate
     }
