@@ -13,24 +13,25 @@ export default class List {
 
     //list template 
     getTemplate(index) {
-        let template =
+        let itemsTemplate =
             `
         <div class="col-4 border">
             <h1>${this.name}</h1> 
             <ul>`
-        template += this.drawItems(index)
-        template += ` </ul>
+        itemsTemplate += this.drawItems(index)
+        itemsTemplate += `</ul> 
+        
         <form onsubmit="app.controllers.listController.addItems(event, ${index})">
         <div class="form-group">
         <label for="items">Items List</label>
-        <input type="list" class="form-control" name="items" placeholder="list items">
+        <input type="list" class="form-control" name="items" id="items" placeholder="list items">
         </div> 
         <button type="submit">Add</button>
         <h5>${this.items}</h5>
         </form>
-        <button type="button" class="bg-danger" onclick="app.controller.listController.deleteList(${index})">Delete</button>
+        <button type="button" class="bg-danger" onclick="app.controller.ListController.deleteList(${index})">Delete</button>
         </div >`
-        return template
+        return itemsTemplate
     }
     drawItems(listIndex) {
         let itemsTemplate = " "

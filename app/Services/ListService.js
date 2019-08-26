@@ -3,7 +3,7 @@ import List from "../Models/List.js";
 //Private
 let _state = {
     lists: [],
-    items: []
+
 }
 
 
