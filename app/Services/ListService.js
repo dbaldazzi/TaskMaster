@@ -23,13 +23,13 @@ export default class ListService {
     }
 
     deleteList(index) {
-        _state.list.splice(index, 1)
+        _state.lists.splice(index, 1)
         this.saveLists()
     }
 
     //add items and lists 
     addItems(newItems, listIndex) {
-        _state.list[listIndex].items.push(newItems)
+        _state.lists[listIndex].items.push(newItems)
         this.saveLists()
         console.log(_state.items)
     }
@@ -44,7 +44,8 @@ export default class ListService {
     // }
 
     //local storage for load on page load and reload 
-    get lists() {
+    get Lists() {
+        // TODO CHECK spelling to ensure it's referring to the correct thing
         return _state.lists.map(list => new List(list))
     }
 

@@ -7,7 +7,7 @@ export default class List {
         this.name = data.name
         this._id = data.id
         this.items = data.items || []
-        this.lists = data.lists
+        this.list = data.list
     }
 
 
@@ -29,7 +29,7 @@ export default class List {
         <button type="submit">Add</button>
         <h5>${this.items}</h5>
         </form>
-        <button type="button" class="bg-danger" onclick="app.controllers.ListController.deleteList(${index})">Delete</button>
+        <button type="button" class="bg-danger" onclick="app.controllers.listController.deleteList(${index})">Delete</button>
         </div >`
         return itemsTemplate
     }
@@ -37,7 +37,7 @@ export default class List {
         let itemsTemplate = " "
         this.items.forEach((items, itemsIndex) => {
             itemsTemplate += `<li> ${items} <span onclick="app.controllers.listController.deleteItems(${listIndex}, 
-        ${itemsIndex})">Delete</span></li>`
+        ${itemsIndex})">X</span></li>`
         });
         return itemsTemplate
     }

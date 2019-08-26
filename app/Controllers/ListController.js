@@ -6,9 +6,11 @@ let _listService = new ListService()
 //TODO Don't forget to render to the screen after every data change.
 function _draw() {
     let template = ''
-    let lists = _listService.lists
-    lists.forEach((lists, index) => {
-        template += lists.getTemplate(index)
+    let list = _listService.Lists
+    console.log(list)
+    list.forEach((list, index) => {
+        template += list.getTemplate(index)
+        console.log(list, index)
     })
 
     //connect template to html 
@@ -46,12 +48,17 @@ export default class ListController {
 
     //delete lists and items
     deleteList(index) {
+        //TODO if confirm, delete; else do nothing
         _listService.deleteList(index)
-        _draw()
+        if (window.confirm("are you sure you want to delete"))
+            _draw()
     }
     deleteItems(listIndex, itemsIndex) {
+        //TODO if confirm, delete; else do nothing
+
         _listService.deleteItems(listIndex, itemsIndex)
-        _draw()
+        if (window.confirm("are you sure you want to delete"))
+            _draw()
     }
 
 }
