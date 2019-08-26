@@ -29,7 +29,7 @@ export default class List {
         <button type="submit">Add</button>
         <h5>${this.items}</h5>
         </form>
-        <button type="button" class="bg-danger" onclick="app.controller.ListController.deleteList(${index})">Delete</button>
+        <button type="button" class="bg-danger" onclick="app.controllers.ListController.deleteList(${index})">Delete</button>
         </div >`
         return itemsTemplate
     }
